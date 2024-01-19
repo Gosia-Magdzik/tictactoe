@@ -25,3 +25,35 @@ export const PlayerWrapper = styled.span`
     border-radius: 4px;
     font-weight: bold;
 `
+
+export const Button = styled.button`
+    width: 3rem;
+    border: none;
+    background: none;
+    color: #c3ba78;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+    text-align: center;
+
+    &:hover {
+        color: #f8ca31; 
+    }
+`
+
+export const Input = styled.input`
+    font: inherit;
+    font-size: 1rem;
+    width: 10rem;
+    border: none;
+    padding: 0.5rem;
+    animation: pulse-text 2s infinite;
+    background-color: #46432f;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:focus {
+        color: #e1dec7; 
+    }
+`
