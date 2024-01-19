@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
       GameContainerWrapper,
       OrderedList,
@@ -8,17 +8,31 @@ import { GameBoard } from '../GameBoard';
 
 
 export const GameContainer = () => {
+
+  const [activePlayer, setActivePlayer] = useState('X');
+
+  function handleSelectSquare() {
+    setActivePlayer((curActivePlayer => curActivePlayer === 'X' ? 'O' : 'X'));
+  }
+
   return (
     <GameContainerWrapper>
-        <OrderedList>
+        <OrderedList className="highlight-player">
           <Player
-            initialName="Player 1" symbol="X"
+            initialName="Player 1" 
+            symbol="X"
+            isActive={activePlayer === 'X'}
           />
           <Player
-            initialName="Player 2" symbol="O"
+            initialName="Player 2" 
+            symbol="O"
+            isActive={activePlayer === 'O'}
           />
         </OrderedList>
-        <GameBoard />
+        <GameBoard 
+          onSelectedSquare={handleSelectSquare}
+          activePlayerSymbol={activePlayer}
+        />
     </GameContainerWrapper>
   )
 }

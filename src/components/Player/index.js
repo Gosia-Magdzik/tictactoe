@@ -7,7 +7,7 @@ import { PlayerWrapper,
         Li
 } from './styled';
 
-export const Player = ({initialName, symbol}) => {
+export const Player = ({ initialName, symbol, isActive }) => {
 
     const [playerName, setPlayerName] = useState(initialName)
     const [isEditing, setIsEditing] = useState(false);
@@ -20,7 +20,9 @@ export const Player = ({initialName, symbol}) => {
         setPlayerName(event.target.value);
     }
 
-    let EditablePlayerName = <PlayerName>{playerName}</PlayerName>;
+    let EditablePlayerName = <PlayerName className={isActive ? 'active' : undefined}>
+                                {playerName}
+                            </PlayerName>;
     if (isEditing) {
         EditablePlayerName = <Input 
                         type="text" 
@@ -36,10 +38,12 @@ export const Player = ({initialName, symbol}) => {
     }
 
   return (
-    <Li>
+    <Li className={isActive ? 'active' : undefined}>
         <PlayerWrapper>
             {EditablePlayerName}
-            <PlayerSymbol>{symbol}</PlayerSymbol>
+            <PlayerSymbol className={isActive ? 'active' : undefined}>
+                {symbol}
+            </PlayerSymbol>
         </PlayerWrapper>
         <Button onClick={handleEditing}>
             {btnCaption}

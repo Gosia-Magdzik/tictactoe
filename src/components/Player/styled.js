@@ -11,12 +11,22 @@ export const PlayerName = styled.span`
     border-radius: 4px;
     text-overflow: ellipsis;
     text-align: center;
+
+    &.active {
+        color: #f6e35a;
+        font-size: 1.5rem;
+    }
 `
 
 export const PlayerSymbol = styled.span`
     margin-left: 1rem;
     font-size: 1rem;
     color: #e1dec7;
+
+    &.active {
+        color: #f6e35a;
+        font-size: 1.5rem;
+    }
 `
 
 export const PlayerWrapper = styled.span`
@@ -59,12 +69,14 @@ export const Input = styled.input`
 `
 
 export const Li = styled.li`
-        display: flex;
-        align-items: center;
-        width: 50%;
-        border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border: 2px solid transparent;
 
         &.active {
             border-color: #f6e35a; 
+            border-radius: 10px;
+            animation: pulse 2s infinite ease-in-out;
         }
 `
