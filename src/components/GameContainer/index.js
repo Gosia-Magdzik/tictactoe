@@ -11,10 +11,10 @@ export const GameContainer = () => {
     <GameContainerWrapper>
         <OrderedList>
           <Player
-            name="Player 1" symbol="X"
+            initialName="Player 1" symbol="X"
           />
           <Player
-            name="Player 2" symbol="O"
+            initialName="Player 2" symbol="O"
           />
         </OrderedList>
     </GameContainerWrapper>

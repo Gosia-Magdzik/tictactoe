@@ -6,17 +6,27 @@ import { PlayerWrapper,
         Input,
 } from './styled';
 
-export const Player = ({name, symbol}) => {
+export const Player = ({initialName, symbol}) => {
 
+    const [playerName, setPlayerName] = useState(initialName)
     const [isEditing, setIsEditing] = useState(false);
 
     function handleEditing() {
         setIsEditing((editing) => !editing);
     }
 
-    let playerName = <PlayerName>{name}</PlayerName>;
+    function handleChange(event) {
+        setPlayerName(event.target.value);
+    }
+
+    let EditablePlayerName = <PlayerName>{playerName}</PlayerName>;
     if (isEditing) {
-        playerName = <Input type="text" required defaultValue={name}/>;
+        EditablePlayerName = <Input 
+                        type="text" 
+                        required 
+                        defaultValue={playerName}
+                        onChange={handleChange}
+                    />;
     }
 
     let btnCaption = "Edit";
@@ -27,7 +37,7 @@ export const Player = ({name, symbol}) => {
   return (
     <li>
         <PlayerWrapper>
-            {playerName}
+            {EditablePlayerName}
             <PlayerSymbol>{symbol}</PlayerSymbol>
         </PlayerWrapper>
         <Button onClick={handleEditing}>
