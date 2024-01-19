@@ -18,5 +18,11 @@ export const OrderedList = styled.ol`
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
+    &.active {
+      li {
+        border-color: #f6e35a;
+      }
+    }
 `
 

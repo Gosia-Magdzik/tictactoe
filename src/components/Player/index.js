@@ -4,6 +4,7 @@ import { PlayerWrapper,
         PlayerSymbol,
         Button,
         Input,
+        Li
 } from './styled';
 
 export const Player = ({initialName, symbol}) => {
@@ -35,7 +36,7 @@ export const Player = ({initialName, symbol}) => {
     }
 
   return (
-    <li>
+    <Li>
         <PlayerWrapper>
             {EditablePlayerName}
             <PlayerSymbol>{symbol}</PlayerSymbol>
@@ -43,6 +44,6 @@ export const Player = ({initialName, symbol}) => {
         <Button onClick={handleEditing}>
             {btnCaption}
         </Button>
-  </li>
+  </Li>
   )
 }

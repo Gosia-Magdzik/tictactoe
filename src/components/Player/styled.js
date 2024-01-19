@@ -57,3 +57,14 @@ export const Input = styled.input`
         color: #e1dec7; 
     }
 `
+
+export const Li = styled.li`
+        display: flex;
+        align-items: center;
+        width: 50%;
+        border: 2px solid transparent;
+
+        &.active {
+            border-color: #f6e35a; 
+        }
+`
