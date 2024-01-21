@@ -49,7 +49,7 @@ export const GameContainer = () => {
           turns={gameTurns}
         />
     </GameContainerWrapper>
-    <Log/>
+    <Log turns={gameTurns} />
     </>
   )
 }

@@ -8,3 +8,9 @@ export const LogWrapper = styled.ol`
     padding: 0;
     text-align: center;
 `
+
+export const List = styled.li`
+    border-radius: 4px;
+    animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    margin: 0.75rem;
+`
