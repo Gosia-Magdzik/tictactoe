@@ -5,17 +5,32 @@ import {
 } from './styled';
 import { Player } from '../Player';
 import { GameBoard } from '../GameBoard';
+import { Log } from '../Log';
 
 
 export const GameContainer = () => {
 
+  const [gameTurns, setGameTurns] = useState([]);
   const [activePlayer, setActivePlayer] = useState('X');
 
-  function handleSelectSquare() {
+  function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((curActivePlayer => curActivePlayer === 'X' ? 'O' : 'X'));
+    setGameTurns(prevTurns => {
+      let currentPlayer = 'X';
+      if (prevTurns.length > 0 && prevTurns[0].player === 'X') {
+        currentPlayer = 'O'
+      }
+
+      const updatedTurns = [
+                        { square: {row: rowIndex, col: colIndex}, player: activePlayer}, 
+                        ...prevTurns
+                        ];
+      return updatedTurns;
+    });
   }
 
   return (
+    <>
     <GameContainerWrapper>
         <OrderedList className="highlight-player">
           <Player
@@ -31,8 +46,10 @@ export const GameContainer = () => {
         </OrderedList>
         <GameBoard 
           onSelectedSquare={handleSelectSquare}
-          activePlayerSymbol={activePlayer}
+          turns={gameTurns}
         />
     </GameContainerWrapper>
+    <Log/>
+    </>
   )
 }
