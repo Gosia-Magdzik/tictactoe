@@ -6,6 +6,7 @@ import {
 import { Player } from '../Player';
 import { GameBoard } from '../GameBoard';
 import { Log } from '../Log';
+import { WINNING_COMBINATIONS } from "../../winning-combinations.js"
 
 function deriveActivePlayer(gameTurns) {
 
