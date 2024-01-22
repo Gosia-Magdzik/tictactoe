@@ -6,7 +6,8 @@ import {
 import { Player } from '../Player';
 import { GameBoard } from '../GameBoard';
 import { Log } from '../Log';
-import { WINNING_COMBINATIONS } from "../../winning-combinations.js"
+import { WINNING_COMBINATIONS } from "../../winning-combinations.js";
+import { GameOver } from '../GameOver/index.js';
 
 function deriveActivePlayer(gameTurns) {
 
@@ -81,7 +82,7 @@ export const GameContainer = () => {
             isActive={activePlayer === 'O'}
           />
         </OrderedList>
-        {winner && <p>You won, {winner}!</p>}
+        {winner && <GameOver winner={winner}/>}
         <GameBoard 
           onSelectedSquare={handleSelectSquare}
           board={gameBoard}
