@@ -22,7 +22,7 @@ export const OrderedList = styled.ol`
     &.active {
       li {
         border-color: #f6e35a;
-        animation: pulse 2s infinite ease-in-out;
+        animation: pulse 2s  ease-in-out;
       }
     }
 `

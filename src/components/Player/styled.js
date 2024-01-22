@@ -69,7 +69,7 @@ export const Input = styled.input`
     width: 10rem;
     border: none;
     padding: 0.5rem;
-    animation: ${popInAnimation} 2s infinite;
+    animation: ${popInAnimation} 2s ;
     background-color: #46432f;
     text-align: center;
     text-transform: uppercase;
@@ -88,18 +88,6 @@ export const Li = styled.li`
         &.active {
             border-color: #f6e35a; 
             border-radius: 10px;
-            animation: ${pulseAnimation} 2s infinite ease-in-out;
+            animation: pulse 2s  ease-in-out;
         }
 `
-
-const pulseAnimation = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
