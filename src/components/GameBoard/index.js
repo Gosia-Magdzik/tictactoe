@@ -4,12 +4,6 @@ import { GameBoardWrapper,
         Li,
 } from "./styled";
 
-const initialGameBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-]
-
 export const GameBoard = ({ onSelectedSquare, board }) => {
 
     return (

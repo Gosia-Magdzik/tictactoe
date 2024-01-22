@@ -6,7 +6,7 @@ import {
         Button 
     } from './styled';
 
-export const GameOver = ({ winner }) => {
+export const GameOver = ({ winner, onRestart }) => {
   return (
     <GameOverWrapper>
         <H2>Game Over!</H2>
@@ -18,7 +18,7 @@ export const GameOver = ({ winner }) => {
         }
         <Info></Info>
         <Info>
-            <Button> Rematch ! </Button>
+            <Button onClick={onRestart}> Rematch ! </Button>
         </Info>
     </GameOverWrapper>
   )

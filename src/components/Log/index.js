@@ -1,5 +1,4 @@
-import React from 'react'
-import { LogWrapper, List } from './styled'
+import { LogWrapper, List } from './styled';
 
 export const Log = ({ turns }) => {
   return (

@@ -15,7 +15,6 @@ function deriveActivePlayer(gameTurns) {
   if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
     currentPlayer = 'O'
   }
-
   return currentPlayer;
 }
 
@@ -30,7 +29,7 @@ export const GameContainer = () => {
 
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
 
   for (const turn of gameTurns){
       const { square, player } = turn;
@@ -69,6 +68,10 @@ export const GameContainer = () => {
     });
   }
 
+  function handleRestart() {
+    setGameTurns([]);
+  }
+
   return (
     <>
     <GameContainerWrapper>
@@ -84,7 +87,9 @@ export const GameContainer = () => {
             isActive={activePlayer === 'O'}
           />
         </OrderedList>
-        {(winner || hasDraw) && <GameOver winner={winner}/>}
+        {(winner || hasDraw) && (
+          <GameOver winner={winner} onRestart={handleRestart}/>
+          )}
         <GameBoard 
           onSelectedSquare={handleSelectSquare}
           board={gameBoard}
