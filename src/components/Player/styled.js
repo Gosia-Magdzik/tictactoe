@@ -1,4 +1,15 @@
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
+
+const popInAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 export const PlayerName = styled.span`
     display: inline-block;
@@ -58,7 +69,7 @@ export const Input = styled.input`
     width: 10rem;
     border: none;
     padding: 0.5rem;
-    animation: pulse-text 2s infinite;
+    animation: ${popInAnimation} 2s infinite;
     background-color: #46432f;
     text-align: center;
     text-transform: uppercase;
@@ -77,6 +88,18 @@ export const Li = styled.li`
         &.active {
             border-color: #f6e35a; 
             border-radius: 10px;
-            animation: pulse 2s infinite ease-in-out;
+            animation: ${pulseAnimation} 2s infinite ease-in-out;
         }
 `
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;

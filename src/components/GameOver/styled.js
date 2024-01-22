@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const popInAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
 
 export const GameOverWrapper = styled.div`
     position: absolute;
@@ -11,7 +22,7 @@ export const GameOverWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background-color: rgba(40, 38, 23, 0.95);
-    animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+    animation: ${popInAnimation} 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 `
 
 export const H2 = styled.h2`
